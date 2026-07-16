@@ -1,0 +1,88 @@
+:root {
+  --mist: #e8eef2;
+  --sky: #c5d4e0;
+  --sky-deep: #9bb0c4;
+  --ink: #1a2330;
+  --ink-muted: #4a5a6c;
+  --ink-faint: #7a8a9c;
+  --frost: rgba(255, 255, 255, 0.45);
+  --frost-strong: rgba(255, 255, 255, 0.72);
+  --copper: #c4783b;
+  --copper-soft: #d4a06a;
+  --sage: #6b8f71;
+  --rose: #b87a7a;
+  --radius: 12px;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Figtree', system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --space: clamp(1rem, 4vw, 1.75rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: linear-gradient(165deg, var(--mist) 0%, var(--sky) 55%, var(--sky-deep) 120%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.composer-focus {
+  animation: breathe 8s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+  from {
+    background: linear-gradient(165deg, #e8eef2 0%, #c5d4e0 55%, #9bb0c4 120%);
+  }
+  to {
+    background: linear-gradient(175deg, #dfe8ef 0%, #b8c9d8 50%, #8ea6bb 120%);
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

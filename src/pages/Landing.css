@@ -1,0 +1,258 @@
+.landing {
+  min-height: 100dvh;
+  background: var(--mist);
+}
+
+.landing__hero {
+  position: relative;
+  min-height: min(100dvh, 52rem);
+  display: grid;
+  place-items: center;
+  padding: calc(2.5rem + env(safe-area-inset-top)) var(--space) 4rem;
+  overflow: hidden;
+}
+
+.landing__scene {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.landing__sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #eef3f7 0%,
+    #d5e2ec 38%,
+    #b7c9d8 62%,
+    #8fa9bd 100%
+  );
+}
+
+.landing__sun {
+  position: absolute;
+  top: 18%;
+  right: max(12%, calc(50% - 22rem));
+  width: clamp(3.5rem, 8vw, 5.5rem);
+  height: clamp(3.5rem, 8vw, 5.5rem);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e8b57a 0%, var(--copper) 70%, #a85e28 100%);
+  box-shadow: 0 0 60px 20px rgba(196, 120, 59, 0.22);
+  animation: sun-glow 10s ease-in-out infinite alternate;
+}
+
+.landing__haze {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 42%;
+  height: 28%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(232, 238, 242, 0.35) 45%,
+    transparent 100%
+  );
+}
+
+.landing__terrain {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: min(58%, 34rem);
+  display: block;
+}
+
+.landing__ridge--far {
+  fill: #9bb0c4;
+}
+
+.landing__ridge--mid {
+  fill: #7f97ab;
+}
+
+.landing__ridge--near {
+  fill: #667f94;
+}
+
+.landing__ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 18%;
+  background: linear-gradient(180deg, #5a7388 0%, #4a6174 55%, #3f5466 100%);
+}
+
+.landing__path {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(56vw, 26rem);
+  /* Tip meets the near-ridge silhouette (bottom-most background path). */
+  height: 22%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(232, 238, 242, 0.1) 0%,
+    rgba(232, 238, 242, 0.32) 100%
+  );
+  clip-path: polygon(49.5% 0, 50.5% 0, 78% 100%, 22% 100%);
+  opacity: 0.6;
+}
+
+@keyframes sun-glow {
+  from {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  to {
+    transform: scale(1.04);
+    filter: brightness(1.08);
+  }
+}
+
+.landing__content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 36rem);
+  text-align: center;
+  margin-top: clamp(2rem, 8vh, 5rem);
+}
+
+.landing__brand {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 14vw, 7rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  margin: 0 0 1.15rem;
+  color: var(--ink);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.landing__support {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.45;
+  margin: 0 auto 1.75rem;
+  color: var(--ink);
+  max-width: 24rem;
+}
+
+.landing__cta {
+  font-size: 1.05rem;
+  padding: 0.85rem 1.55rem;
+}
+
+.landing__ideas {
+  position: relative;
+  z-index: 1;
+  padding: 3.5rem var(--space) calc(3.5rem + env(safe-area-inset-bottom));
+  max-width: 42rem;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(232, 238, 242, 0.92) 0%, var(--mist) 18%);
+}
+
+.landing__ideas h2 {
+  font-size: clamp(1.5rem, 3vw, 1.85rem);
+  margin-bottom: 0.4rem;
+}
+
+.landing__ideas-lead {
+  margin: 0 0 1.5rem;
+  color: var(--ink-muted);
+}
+
+.landing__prompts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.landing__prompts button {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(26, 35, 48, 0.1);
+  padding: 1.05rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: color 0.2s var(--ease);
+}
+
+.landing__prompts button:hover {
+  color: var(--copper);
+}
+
+.landing__prompt-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.landing__prompt-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  line-height: 1.35;
+}
+
+.landing__foot {
+  margin-top: 2rem;
+  color: var(--ink-muted);
+}
+
+.landing__foot a {
+  color: var(--copper);
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .landing__hero {
+    min-height: 100dvh;
+    align-content: center;
+    padding-bottom: 6rem;
+  }
+
+  .landing__content {
+    margin-top: 0;
+  }
+
+  .landing__sun {
+    top: 16%;
+    right: 18%;
+  }
+
+  .landing__terrain {
+    height: min(64%, 40rem);
+  }
+
+  .landing__path {
+    height: 24%;
+  }
+
+  .landing__ideas {
+    max-width: 48rem;
+    padding-top: 4.5rem;
+  }
+
+  .landing__prompts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.5rem;
+  }
+
+  .landing__prompts li:last-child {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,149 @@
+.shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 var(--space) calc(2rem + env(safe-area-inset-bottom));
+}
+
+.shell__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: calc(1rem + env(safe-area-inset-top)) 0 1.25rem;
+  gap: 1rem;
+}
+
+.shell__brand-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.shell__brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.shell__profile {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28rem;
+  flex-shrink: 1;
+  min-width: 0;
+  max-width: 11rem;
+  padding: 0.2rem 0.55rem 0.22rem;
+  border-radius: 999px;
+  background: rgba(196, 120, 59, 0.12);
+  border: 1px solid rgba(196, 120, 59, 0.28);
+  color: var(--copper);
+  line-height: 1.15;
+  cursor: pointer;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.shell__profile:hover {
+  background: rgba(196, 120, 59, 0.2);
+  border-color: rgba(196, 120, 59, 0.45);
+}
+
+.shell__profile:active {
+  transform: scale(0.97);
+}
+
+.shell__profile--arcane {
+  background: rgba(107, 120, 168, 0.14);
+  border-color: rgba(107, 120, 168, 0.35);
+  color: #4d5a8a;
+}
+
+.shell__profile--arcane:hover {
+  background: rgba(107, 120, 168, 0.22);
+  border-color: rgba(107, 120, 168, 0.5);
+}
+
+.shell__profile--might {
+  background: rgba(184, 122, 122, 0.14);
+  border-color: rgba(184, 122, 122, 0.35);
+  color: #8a4a4a;
+}
+
+.shell__profile--might:hover {
+  background: rgba(184, 122, 122, 0.22);
+  border-color: rgba(184, 122, 122, 0.5);
+}
+
+.shell__profile--dawn {
+  background: rgba(107, 143, 113, 0.14);
+  border-color: rgba(107, 143, 113, 0.35);
+  color: #3f5f45;
+}
+
+.shell__profile--dawn:hover {
+  background: rgba(107, 143, 113, 0.22);
+  border-color: rgba(107, 143, 113, 0.5);
+}
+
+.shell__profile--trail {
+  background: rgba(90, 115, 136, 0.14);
+  border-color: rgba(90, 115, 136, 0.35);
+  color: #3f5466;
+}
+
+.shell__profile--trail:hover {
+  background: rgba(90, 115, 136, 0.22);
+  border-color: rgba(90, 115, 136, 0.5);
+}
+
+.shell__profile-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.shell__profile-level {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shell__nav {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+}
+
+.shell__nav a {
+  position: relative;
+  padding-bottom: 0.15rem;
+}
+
+.shell__nav a.is-active {
+  color: var(--ink);
+}
+
+.shell__nav a.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--copper);
+  border-radius: 2px;
+}
+
+.shell__main {
+  flex: 1;
+}

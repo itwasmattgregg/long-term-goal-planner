@@ -1,0 +1,47 @@
+.goal-ring {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.goal-ring__track {
+  stroke: rgba(26, 35, 48, 0.12);
+}
+
+.goal-ring__momentum {
+  stroke: rgba(155, 176, 196, 0.9);
+  transition: stroke-dashoffset 0.6s var(--ease);
+}
+
+.goal-ring__xp {
+  stroke: var(--copper);
+  transition: stroke-dashoffset 0.7s var(--ease);
+}
+
+.goal-ring__level {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.goal-ring--flash .goal-ring__xp {
+  animation: copper-flash 0.7s var(--ease);
+}
+
+@keyframes copper-flash {
+  0% {
+    stroke: var(--copper);
+    filter: brightness(1);
+  }
+  40% {
+    stroke: #e8a86a;
+    filter: brightness(1.35);
+  }
+  100% {
+    stroke: var(--copper);
+    filter: brightness(1);
+  }
+}
