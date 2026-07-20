@@ -88,7 +88,7 @@ export function findCueMatches(text: string): CueMatch[] {
   return result
 }
 
-function kindFromCues(text: string): EntryKind {
+function kindFromCues(text: string): CueKind | 'update' {
   for (const kind of KIND_PRIORITY) {
     if (CUE_PATTERNS.some((p) => p.kind === kind && new RegExp(p.source, 'i').test(text))) {
       return kind
