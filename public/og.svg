@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Horizon">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eef3f7"/>
+      <stop offset="38%" stop-color="#d5e2ec"/>
+      <stop offset="62%" stop-color="#b7c9d8"/>
+      <stop offset="100%" stop-color="#8fa9bd"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e8b57a"/>
+      <stop offset="55%" stop-color="#c4783b"/>
+      <stop offset="100%" stop-color="#a85e28"/>
+    </radialGradient>
+    <radialGradient id="sunHalo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(196,120,59,0.28)"/>
+      <stop offset="70%" stop-color="rgba(196,120,59,0.08)"/>
+      <stop offset="100%" stop-color="rgba(196,120,59,0)"/>
+    </radialGradient>
+    <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(232,238,242,0)"/>
+      <stop offset="45%" stop-color="rgba(232,238,242,0.35)"/>
+      <stop offset="100%" stop-color="rgba(232,238,242,0)"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a7388"/>
+      <stop offset="55%" stop-color="#4a6174"/>
+      <stop offset="100%" stop-color="#3f5466"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(232,238,242,0.1)"/>
+      <stop offset="100%" stop-color="rgba(232,238,242,0.32)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#sky)"/>
+
+  <circle cx="900" cy="150" r="90" fill="url(#sunHalo)"/>
+  <circle cx="900" cy="150" r="42" fill="url(#sunGlow)"/>
+
+  <rect y="250" width="1200" height="180" fill="url(#haze)"/>
+
+  <path
+    d="M0 310 C150 250 270 360 430 290 C600 215 730 300 900 260 C1030 230 1130 280 1200 250 L1200 630 L0 630 Z"
+    fill="#9bb0c4"
+  />
+  <path
+    d="M0 350 C180 300 330 390 515 340 C715 280 815 370 980 330 C1080 305 1150 340 1200 320 L1200 630 L0 630 Z"
+    fill="#7f97ab"
+  />
+  <path
+    d="M0 410 C215 370 350 450 580 400 C815 345 930 440 1200 390 L1200 630 L0 630 Z"
+    fill="#667f94"
+  />
+
+  <rect y="520" width="1200" height="110" fill="url(#ground)"/>
+
+  <path
+    d="M595 430 L605 430 L780 630 L420 630 Z"
+    fill="url(#path)"
+    opacity="0.6"
+  />
+
+  <text
+    x="600"
+    y="250"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="128"
+    font-weight="600"
+    letter-spacing="-5"
+    fill="#1a2330"
+  >Horizon</text>
+  <text
+    x="600"
+    y="310"
+    text-anchor="middle"
+    font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+    font-size="28"
+    font-weight="500"
+    fill="#1a2330"
+  >Write naturally. Watch long-term goals level up.</text>
+</svg>
