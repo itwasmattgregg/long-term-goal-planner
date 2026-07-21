@@ -9,6 +9,10 @@ export const PROFILE_CHANGED_EVENT = 'horizon:profile'
 export const LEVEL_SYSTEM_CHANGED_EVENT = 'horizon:level-system'
 
 const META_LEVEL_SYSTEM = 'levelSystem'
+const META_LAST_BACKUP = 'lastBackupAt'
+const META_BACKUP_SNOOZE = 'backupReminderSnoozedUntil'
+
+export const BACKUP_CHANGED_EVENT = 'horizon:backup'
 
 function notifyProfileChanged() {
   window.dispatchEvent(new CustomEvent(PROFILE_CHANGED_EVENT))
@@ -16,6 +20,10 @@ function notifyProfileChanged() {
 
 function notifyLevelSystemChanged() {
   window.dispatchEvent(new CustomEvent(LEVEL_SYSTEM_CHANGED_EVENT))
+}
+
+function notifyBackupChanged() {
+  window.dispatchEvent(new CustomEvent(BACKUP_CHANGED_EVENT))
 }
 
 function isVisible(goal: Goal): boolean {
@@ -40,6 +48,26 @@ export async function getLevelSystemPreference(): Promise<LevelSystemId> {
 export async function setLevelSystemPreference(id: LevelSystemId): Promise<void> {
   await db.meta.put({ key: META_LEVEL_SYSTEM, value: id })
   notifyLevelSystemChanged()
+}
+
+export async function getLastBackupAt(): Promise<string | null> {
+  const row = await db.meta.get(META_LAST_BACKUP)
+  return row?.value ?? null
+}
+
+export async function setLastBackupAt(iso: string): Promise<void> {
+  await db.meta.put({ key: META_LAST_BACKUP, value: iso })
+  notifyBackupChanged()
+}
+
+export async function getBackupReminderSnoozedUntil(): Promise<string | null> {
+  const row = await db.meta.get(META_BACKUP_SNOOZE)
+  return row?.value ?? null
+}
+
+export async function setBackupReminderSnoozedUntil(iso: string): Promise<void> {
+  await db.meta.put({ key: META_BACKUP_SNOOZE, value: iso })
+  notifyBackupChanged()
 }
 
 export async function getAllGoals(): Promise<Goal[]> {

@@ -7,6 +7,8 @@ import {
   PROFILE_CHANGED_EVENT,
 } from '../db/operations'
 import { badgeText, getLevelSystem, type LevelSystemId } from '../lib/levelSystems'
+import { BackupPanel } from './BackupPanel'
+import { BackupReminder } from './BackupReminder'
 import { ProfileHelp } from './ProfileHelp'
 import './AppShell.css'
 
@@ -16,6 +18,7 @@ export function AppShell() {
   )
   const [systemId, setSystemId] = useState<LevelSystemId>('classic')
   const [helpOpen, setHelpOpen] = useState(false)
+  const [backupOpen, setBackupOpen] = useState(false)
 
   useEffect(() => {
     async function refreshProfile() {
@@ -57,16 +60,28 @@ export function AppShell() {
             </button>
           )}
         </div>
-        <nav className="shell__nav" aria-label="App">
-          <NavLink to="/app" end className={({ isActive }) => (isActive ? 'is-active' : undefined)}>
-            Today
-          </NavLink>
-          <NavLink to="/app/goals" className={({ isActive }) => (isActive ? 'is-active' : undefined)}>
-            Goals
-          </NavLink>
-        </nav>
+        <div className="shell__header-end">
+          <button
+            type="button"
+            className="shell__backup"
+            title="Backup and export"
+            aria-label="Open backup and export"
+            onClick={() => setBackupOpen(true)}
+          >
+            Backup
+          </button>
+          <nav className="shell__nav" aria-label="App">
+            <NavLink to="/app" end className={({ isActive }) => (isActive ? 'is-active' : undefined)}>
+              Today
+            </NavLink>
+            <NavLink to="/app/goals" className={({ isActive }) => (isActive ? 'is-active' : undefined)}>
+              Goals
+            </NavLink>
+          </nav>
+        </div>
       </header>
       <main className="shell__main">
+        <BackupReminder />
         <Outlet />
       </main>
 
@@ -82,6 +97,8 @@ export function AppShell() {
           onSystemChange={setSystemId}
         />
       )}
+
+      <BackupPanel open={backupOpen} onClose={() => setBackupOpen(false)} />
     </div>
   )
 }

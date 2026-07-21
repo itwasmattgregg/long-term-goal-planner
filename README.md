@@ -281,7 +281,12 @@ Think of it as a **leveling journal for futures that take years**, not a task ma
 - Persistence is **local IndexedDB** via Dexie.
 - No login, no backend, no analytics baked into the core flow.
 
-Back up anything precious with your own export habits (browser backup, screenshots of goal pages, etc.) until you add a formal export path.
+Back up from the in-app **Backup** control:
+
+- **JSON backup** — a full snapshot you can restore later into Horizon (replaces current data).
+- **Markdown export** — a readable one-way copy of goals, milestones, and journal entries for other apps or a plain-text archive (not re-importable).
+
+Horizon also nudges you if you haven’t taken a JSON backup in a while. Prefer the JSON path for recovery; use Markdown when you want to leave or read elsewhere.
 
 ---
 

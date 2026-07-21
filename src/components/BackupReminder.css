@@ -1,0 +1,25 @@
+.backup-reminder {
+  margin: 0 0 1.25rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius);
+  background: rgba(196, 120, 59, 0.1);
+  border: 1px solid rgba(196, 120, 59, 0.28);
+}
+
+.backup-reminder__text {
+  margin: 0 0 0.75rem;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.backup-reminder__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.backup-reminder__btn {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.88rem;
+}
